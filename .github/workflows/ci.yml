@@ -29,6 +29,11 @@ jobs:
       packages: write
     steps:
     - uses: actions/checkout@v4
+    - name: Debug
+      run: echo "Provider length = ${#PROVIDER}, SA length = ${#SA}"
+      env:
+        PROVIDER: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+        SA: ${{ secrets.GCP_SERVICE_ACCOUNT }}
     - uses: google-github-actions/auth@v2
       with:
         workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
