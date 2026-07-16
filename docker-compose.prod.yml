@@ -1,0 +1,5 @@
+services:
+  web:
+    restart: always
+    environment:
+      FLASK_DEBUG: "0"
