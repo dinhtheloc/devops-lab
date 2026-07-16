@@ -2,7 +2,6 @@ import pytest
 
 from app import app as flask_app
 
-# test_health.py
 @pytest.fixture
 def client():
     flask_app.config['TESTING'] = True
