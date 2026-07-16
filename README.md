@@ -1,1 +1,1 @@
-![CI](https://github.com/dinhtheloc/depops-lab/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/dinhtheloc/devops-lab/actions/workflows/ci.yml/badge.svg)
