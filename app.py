@@ -1,12 +1,15 @@
 from flask import Flask, jsonify
-import socket, os
+import socket
+import os
 import psycopg2
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def health():
-    return jsonify(status = 'ok', hostname = socket.gethostname())
+    return jsonify(status='ok', hostname=socket.gethostname())
+
 
 @app.route('/db-check')
 def db_check():
@@ -25,6 +28,7 @@ def db_check():
         return jsonify(status='ok', db='connected', result=result[0])
     except Exception as e:
         return jsonify(status='error', db='failed', message=str(e)), 500
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
