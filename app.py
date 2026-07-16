@@ -2,6 +2,22 @@ from flask import Flask, jsonify
 import socket
 import os
 import psycopg2
+import sys
+import logging
+import json
+
+class JsonFormatter(logging.Formatter):
+    def format(self, record):
+        return json.dumps({
+            'severity': record.levelname,
+            'message': record.getMessage(),
+        })
+
+handler = logging.StreamHandler(sys.stdout)
+handler.setFormatter(JsonFormatter())
+logging.getLogger().handlers = [handler]
+logging.getLogger().setLevel(logging.INFO)
+
 
 app = Flask(__name__)
 
