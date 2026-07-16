@@ -6,12 +6,14 @@ import sys
 import logging
 import json
 
+
 class JsonFormatter(logging.Formatter):
     def format(self, record):
         return json.dumps({
             'severity': record.levelname,
             'message': record.getMessage(),
         })
+
 
 handler = logging.StreamHandler(sys.stdout)
 handler.setFormatter(JsonFormatter())
